@@ -15,12 +15,25 @@ const orderSchema = new mongoose.Schema({
     }],
     price: {
         type: Number,
-        default: 200,
+        default: 0,
+        required:true
+    },
+    quantity: {
+        type: Number,
+        default: 1
+    },
+    amount: {
+        type: Number,
+        default: 0,
         required:true
     },
     address:{
         type: String,
         required: true
+    },
+    status:{
+        type:String,
+        default:'pending'
     }
 },{
     timestamps: true

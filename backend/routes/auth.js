@@ -13,24 +13,20 @@ router.post('/register', async(req, res) => {
     const userExist = await User.findOne({username: req.body.email})
     if(!userExist){
         const salt = await bcrypt.genSalt(10)
-        const hashedpassword = await  bcrypt.hash(req.body.password,salt)
+        const hashedPassword = await  bcrypt.hash(req.body.password,salt)
 
       
         const newUser = await new User({
             username: req.body.username,
-            password: hashedpassword,
-            email: req.body.email,
+            password: hashedPassword,
+            email: req.body.email
 
         })
-        if(newUser){
-            const generateToken=  jwt.sign({id: newUser._id, role: newUser.role},
-                process.env.JWT_SECRET,
-                {expiresIn: "3d"})
 
             await newUser.save()
             const {password, ...others} = newUser._doc
-            res.status(201).json({...others, generateToken})
-        }
+            res.status(201).json({...others})
+        
         
         
     }else{
@@ -43,9 +39,15 @@ router.post('/login',async(req, res) => {
     const {password} = req.body
     const user = await User.findOne({username: req.body.username})
     if(user && (await bcrypt.compare(password,user.password))){
+
+        const generateToken=  jwt.sign({id: user._id, role: user.role},
+            process.env.JWT_SECRET,
+            {expiresIn: "3d"})
+
         res.status(200).json({
             message: 'Login successful',
-            user
+            user,
+            token: generateToken
         })
     }else{
         res.status(200).json({

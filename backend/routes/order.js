@@ -65,4 +65,24 @@ router.delete('/:id',verifyTokenForUserAndAdmin, async(req,res) => {
     }
 })
 
+//GET MONTHLY INCOME
+
+router.get('/income', verifyTokenForAdmin, async(req, res)=>{
+    const date = new Date()
+    const lastMonth = new Date(date.setMonth(date.getMonth()-1))
+    const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth()-1))
+
+    try {
+        const income = await Order.aggregate([
+            {$match:{createdAt:{$gte:previousMonth}}},
+            
+            {$project:{month:{$month:'$createdAt'}},sales:'$amount'},
+
+            {$group:{whatMonth:'$month', totalSales:{$sum:'$sales'}}}
+        ])
+    } catch (error) {
+        
+    }
+})
+
 module.exports = router
