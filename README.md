@@ -5,7 +5,7 @@ Users can click on any product to get more information including pricing, review
 Users can select items and add them to their shopping cart
 
 # Postman Documentation
-The E-commerce postman documentation can be viewed [here](https://documenter.getpostman.com/view/19932253/Uz5GovsG).
+The E-commerce postman documentation can be viewed [here](https://documenter.getpostman.com/view/19932253/UzJLNvq7).
 # Getting Started
 To get started you can simply clone this ecommerce repository and install the dependencies.
 
