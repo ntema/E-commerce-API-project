@@ -4,7 +4,7 @@ This application demonstrates an E-commerce website using the MEN stack. The app
 Users can click on any product to get more information including pricing, reviews and rating. 
 Users can select items and add them to their shopping cart
 
-# POSTMAN Documentation
+# Postman Documentation
 The E-commerce postman documentation can be viewed [here](https://documenter.getpostman.com/view/19932253/Uz5GovsG).
 # Getting Started
 To get started you can simply clone this ecommerce repository and install the dependencies.
