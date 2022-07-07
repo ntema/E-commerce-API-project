@@ -1,10 +1,10 @@
 # E-commerce-API-project
 An e-commerce API project with jwt authorization and admin dashboard functionalities.
-This application demonstrates an E-commerce website using the MEN stack. The application loads products a MongoDB database and displays them. Users can select to display products in a single category.
+This application demonstrates an E-commerce website using the MEN stack. The application loads products to MongoDB database and displays them. Users can select to display products in a single category.
 Users can click on any product to get more information including pricing, reviews and rating. 
 Users can select items and add them to their shopping cart
 
-# Live Demonstration
+# POSTMAN Documentation
 The E-commerce postman documentation can be viewed [here](https://documenter.getpostman.com/view/19932253/Uz5GovsG).
 # Getting Started
 To get started you can simply clone this ecommerce repository and install the dependencies.
