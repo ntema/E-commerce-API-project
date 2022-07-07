@@ -5,13 +5,13 @@ Users can click on any product to get more information including pricing, review
 Users can select items and add them to their shopping cart
 
 # Live Demonstration
-The E-commerce postman documentation can be viewed [here]().
+The E-commerce postman documentation can be viewed [here](https://documenter.getpostman.com/view/19932253/Uz5GovsG).
 # Getting Started
 To get started you can simply clone this ecommerce repository and install the dependencies.
 
 >Clone the ecommerce-demo repository using git:
 
-`git clone https://github.com/ratracegrad/E-commerce-API-project`
+`git clone https://github.com/ntema/E-commerce-API-project.git`
 >cd E-commerce-API-project
 
 >Install dependencies with this command:
