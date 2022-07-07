@@ -1,30 +1,22 @@
 const bcrypt = require('bcryptjs')
 const { Query } = require('mongoose')
-const Product = require('../models/user')
+const Product = require('../models/products')
 const {verifyToken,
     verifyTokenForUserAndAdmin, 
    verifyTokenForModerator,
     verifyTokenForAdmin,
     verifyTokenForSecreatary} = require('./Authorization')
+    
+    const upload = require("../config/multer.config");
+    const addNewproduct = require("../routes/addNewproduct");
+    const getAllProducts = require("../routes/getAllProducts");
+    const addAReview = require("../routes/addAReview");
+    
 const router = require('express').Router()
 
-
-router.post('/add',verifyTokenForAdmin, async(req, res) => {
-      try {
-        const newProduct =  new Product({
-            title: req.body.title,
-            desc: req.body.desc,
-            category: req.body.category,
-            price: req.body.price,
-            img:req.body.img
-        })
-
-           const product = await newProduct.save()
-            res.status(201).json(product)
-      } catch (error) {
-        res.status(500).json(error.message)
-      }  
-    })
+router.get("/all", getAllProducts);
+    router.post("/add", verifyTokenForAdmin, upload.single("image"), addNewproduct);
+    router.patch("/reviews/:id", verifyToken, addAReview);
 
 
 router.get('/find/:id', async(req,res) => { 

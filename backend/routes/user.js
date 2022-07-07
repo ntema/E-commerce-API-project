@@ -27,9 +27,12 @@ router.get('/',verifyTokenForAdmin, async(req,res) => {
         const user = query? await User.find().sort({_id:-1}).limit(5) : await User.find()
         if(user){
         res.status(200).json(user)
+    }else if(!verifyTokenForAdmin) {
+        res.status(400).json('no token')
     }else{
         res.status(400).json('user not found')
     }
+    
     } catch (error) {
         console.error(error.message)
         res.status(500).json('server error')

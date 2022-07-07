@@ -54,7 +54,7 @@ const ProductSchema = new Schema({
   },
   imageURL: {
     type: String,
-    required: true,
+    // required: true,
   },
   catSlug: {
     type: String,

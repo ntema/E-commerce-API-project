@@ -7,7 +7,7 @@ module.exports = async ({ req, res, Schema, slugify, Product }) => {
     if (error) {
       return res.json({ error: { message: error.details[0].message } });
     }
-    body.imageURL = file.path;
+    // body.imageURL = file.path;
     const { _id } = req.user;
     console.log(_id);
 
