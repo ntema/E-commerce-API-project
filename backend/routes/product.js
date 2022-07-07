@@ -8,6 +8,25 @@ const {verifyToken,
     verifyTokenForSecreatary} = require('./Authorization')
 const router = require('express').Router()
 
+
+router.post('/add',verifyTokenForAdmin, async(req, res) => {
+      try {
+        const newProduct =  new Product({
+            title: req.body.title,
+            desc: req.body.desc,
+            category: req.body.category,
+            price: req.body.price,
+            img:req.body.img
+        })
+
+           const product = await newProduct.save()
+            res.status(201).json(product)
+      } catch (error) {
+        res.status(500).json(error.message)
+      }  
+    })
+
+
 router.get('/find/:id', async(req,res) => { 
     try {
         const product = await Product.findById(req.params.id)

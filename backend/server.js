@@ -12,8 +12,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 //routes
-app.use('/auth', require('./routes/auth'))
-app.use('/user', require('./routes/user'))
-app.use('/product', require('./routes/product'))
-app.use('/order', require('./routes/order'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/user', require('./routes/user'))
+app.use('/api/product', require('./routes/product'))
+app.use('/api/order', require('./routes/order'))
 app.listen(process.env.PORT,() => {console.log('server running on port '+ process.env.PORT )})

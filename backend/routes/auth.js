@@ -50,7 +50,7 @@ router.post('/login',async(req, res) => {
             token: generateToken
         })
     }else{
-        res.status(200).json({
+        res.status(400).json({
         message: 'invalid login credentials',
         })
     }
